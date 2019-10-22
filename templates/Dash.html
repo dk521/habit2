@@ -1,0 +1,185 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html  >
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Mobirise v4.11.2, mobirise.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+  <link rel="shortcut icon" href="{% static 'assets/images/logo.png' %}" type="image/x-icon">
+  <meta name="description" content="Main Page">
+  
+  <title>DashBoard</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&subset=latin">
+  <link rel="stylesheet" href="{% static 'assets/tether/tether.min.css' %}">
+  <link rel="stylesheet" href="{% static 'dash.css' %}">
+
+  <link rel="stylesheet" href="{% static 'assets/animatecss/animate.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/dropdown/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/theme/css/style.css' %}">
+  <link rel="preload" as="style" href="{% static 'assets/mobirise/css/mbr-additional.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/mobirise/css/mbr-additional.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'dash/dash.css' %}">
+    <link rel="stylesheet" href="{% static 'radio.css' %}">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+  
+  
+</head>
+<body>
+  <section id="ext_menu-r" data-rv-view="12">
+
+    <nav class="navbar navbar-dropdown navbar-fixed-top">
+        <div class="container">
+
+            <div class="mbr-table">
+                <div class="mbr-table-cell">
+
+                    <div class="navbar-brand">
+                        <a href="https://mobirise.com" class="navbar-logo"><img src="assets/images/mbr-1920x1920.jpg" alt="Mobirise"></a>
+                        <a class="navbar-caption" href="https://mobirise.com">Habit-Hacker</a>
+                    </div>
+
+                </div>
+                <div class="mbr-table-cell">
+
+                    <button class="navbar-toggler pull-xs-right hidden-md-up" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+                        <div class="hamburger-icon"></div>
+                    </button>
+
+                    <ul class="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm" id="exCollapsingNavbar"><li class="nav-item dropdown"><a class="nav-link link dropdown-toggle" href="https://mobirise.com/" data-toggle="dropdown-submenu">Analyze</a><div class="dropdown-menu"><a class="dropdown-item" href="https://mobirise.com/">All</a><a class="dropdown-item" href="https://mobirise.com/">Habit1</a><a class="dropdown-item" href="https://mobirise.com/">Habit2</a><a class="dropdown-item" href="https://mobirise.com/">Habit2<br></a><a class="dropdown-item" href="https://mobirise.com/">Habit4<br></a><div class="dropdown"><a class="dropdown-item dropdown-toggle" href="https://mobirise.com/" data-toggle="dropdown-submenu">More</a><div class="dropdown-menu dropdown-submenu"><a class="dropdown-item" href="https://mobirise.com/">habit11</a><a class="dropdown-item" href="https://mobirise.com/">habit22</a></div></div></div></li><li class="nav-item dropdown"><a class="nav-link link dropdown-toggle" href="https://mobirise.com/" data-toggle="dropdown-submenu">Account</a><div class="dropdown-menu"><a class="dropdown-item" href="index.html">Sign-out</a></div></li></ul>
+                    <button hidden="" class="navbar-toggler navbar-close" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+                        <div class="close-icon"></div>
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+    </nav>
+
+</section>
+<br><br><br><br><br>
+  <br><br><br><br><br>
+<section class="engine"><a href="https://mobirise.info/k">develop own website</a></section><section class="mbr-section mbr-section-nopadding mbr-figure--caption-outside-bottom mbr-after-navbar" id="image1-p" data-rv-view="10">
+    <div class="container">
+	<div class="row">
+	<div class="col-sm  holder">
+			<table width="100%">
+                <form action="{% url 'recommend' %}" method="POST">
+                    {% csrf_token %}
+
+                {% for i in habits %}
+				<tr>
+					<td>{{ i.name }}</td>
+					<td>
+						<div>
+							<input type="checkbox" id ="{{ i.id }}" name="{{ i.id }}" value="True">
+						    <span></span>
+						</div>
+					</td>
+				</tr>
+
+                {% endfor %}
+                    <input type="hidden" name="x" value="working">
+                <tr>
+
+                    <div class="container">
+                        <div class="row">
+                            How was yoour Day?
+                            <br>
+                            <p id="date"></p>
+
+                            <div class="custom-radios">
+                              <div>
+                                <input type="radio" id="color-1" name="mood" value="Happy" checked>
+                                <label for="color-1">
+                                  <span style="color:white;"> HAPPY
+                                  </span>
+                                </label>
+                              </div>
+
+                              <div>
+                                <input type="radio" id="color-2" name="mood" value="Relaxed">
+                                <label for="color-2">
+                                  <span style="color:white;"> RELAXED
+                                  </span>
+                                </label>
+                              </div>
+
+                              <div>
+                                <input type="radio" id="color-3" name="mood" value="Angry">
+                                <label for="color-3">
+                                  <span style="color:white;"> ANGRY
+                                  </span>
+                                </label>
+                              </div>
+
+                              <div>
+                                <input type="radio" id="color-4" name="mood" value="Sad">
+                                <label for="color-4">
+                                  <span style="color:white;"> SAD
+                                  </span>
+                                </label>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </tr>
+				<tr>
+					<td colspan="2">
+						<input type="submit" value="Recommend Music" >
+					</td>
+				</tr>
+                </form>
+			</table>
+		</div>
+        <div class="col-sm-4">
+
+        </div>
+
+        <div class="col-sm-4">
+		  <div class="form-group">
+		  <label for="comment">Recommened Songs</label>
+		  <textarea class="form-control" rows="10" id="comment">
+{% for i in recommened_songs %}
+{{ i }}
+{% endfor %}
+			</textarea>
+		</div> 
+        </div>
+	</div>
+</div>
+
+
+</section>
+
+
+
+
+
+
+  <script src="{% static 'assets/web/assets/jquery/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/tether/tether.min.js' %}"></script>
+  <script src="{% static 'assets/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'assets/touch-swipe/jquery.touch-swipe.min.js' %}"></script>
+  <script src="{% static 'assets/smooth-scroll/smooth-scroll.js' %}"></script>
+  <script src="{% static 'assets/viewport-checker/jquery.viewportchecker.js' %}"></script>
+  <script src="{% static 'assets/dropdown/js/script.min.js' %}"></script>
+  <script src="{% static 'assets/theme/js/script.js' %}"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+      n =  new Date();
+y = n.getFullYear();
+m = n.getMonth() + 1;
+d = n.getDate();
+document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+  </script>
+  
+  
+  <input name="animation" type="hidden">
+  </body>
+</html>
